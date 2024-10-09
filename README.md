@@ -25,7 +25,7 @@ Strativ Odoo Workshop
   CREATE USER workshop WITH PASSWORD 'secret';
   CREATE ROLE admin WITH CREATEDB CREATEROLE LOGIN PASSWORD 'secret_admin';
   ```
-- Up and runnin
+- Up and running
   ```
   ./odoo-bin --db_host localhost --db_port 5433 -w secret_admin -r admin
   ```
