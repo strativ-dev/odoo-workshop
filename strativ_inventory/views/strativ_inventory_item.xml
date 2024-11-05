@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<odoo>
+    <record id="strativ_inventory_item_model_action" model="ir.actions.act_window">
+        <field name="name">Strativ Inventory Item</field>
+        <field name="res_model">strativ.inventory.item</field>
+        <field name="view_mode">tree,form</field>
+    </record>
+
+    <!-- Add this if you haven't defined a menu item for it -->
+    <menuitem id="root_strativ_inventory_item_menu" name="Strativ Inventory">
+        <menuitem id="submenu_strativ_inventory_item_menu" name="Items" action="strativ_inventory_item_model_action"/>
+    </menuitem>
+
+    <record id="strativ_inventory_item_view_tree" model="ir.ui.view">
+        <field name="name">strativ.inventory.item.tree</field>
+        <field name="model">strativ.inventory.item</field>
+        <field name="arch" type="xml">
+            <tree string="Channel">
+                <field name="image" widget="image" class="item-thumbnail"/>
+                <field name="name"/>
+                <field name="buy_price"/>
+                <field name="buy_date"/>
+            </tree>
+        </field>
+    </record>
+
+</odoo>
