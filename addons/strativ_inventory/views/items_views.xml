@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<odoo>
+
+    <record id="inventory_items_action" model="ir.actions.act_window">
+        <field name="name">Inventory Items</field>
+        <field name="res_model">strativ.inventory.item</field>
+        <field name="view_mode">list,form</field>
+    </record>
+    
+
+    <record id="strativ_inventory_item_view_tree" model="ir.ui.view">
+        <field name="name">strativ_inventory_item_view_tree</field>
+        <field name="model">strativ.inventory.item</field>
+        <field name="arch" type="xml">
+            <tree string="clustered">
+                <field name="name" string="Title" />
+                <field name="buy_date" string="Purchase Date"/>
+                <field name="buy_price" string = "Price"/>
+                <field name="state" string="Status"/>
+                <field name="active" string="Active"/>
+            </tree>
+        </field>
+    </record>
+
+    <record id="strativ_inventory_item_view_form" model="ir.ui.view">
+        <field name="name">strativ_inventory_item_view_form</field>
+        <field name="model">strativ.inventory.item</field>
+        <field name="arch" type="xml">
+            <form>
+                <sheet>
+                    <h1>
+                        <field name="name" />
+                    </h1>
+                    <notebook>
+                        <page string="Item">
+                            <group>
+                                <field name="name" />
+                                <field name="buy_date" />
+                                <field name="description" />
+                                <field name="image" />   
+                                <field name="active" />
+                            </group>
+                        </page>
+
+                        <page string="Price and Availability">
+                            <group>
+                                <field name="buy_price" string="Price"/>
+                                <field name="state" string="State"/>
+                            </group>
+                        </page>
+                    </notebook>
+                </sheet>
+            </form>
+        </field>
+    </record>
+
+    <record id="strativ_inventory_item_search_view" model="ir.ui.view">
+        <field name="name">strativ_inventory_item_search_view</field>
+        <field name="model">strativ.inventory.item</field>
+        <field name="arch" type="xml">
+            <search>
+                <field name="name" string="Title"/>
+                <field name="buy_price" string="Price"/>
+                <field name="buy_date" string="Purchase Date"/>
+                <field name="state" string="State"/>
+                <filter name="bought_and_allocated" string="Exclude pending" domain="['|', ('state', '=', 'bought'), ('state', '=', 'allocated')]" />
+                <filter name="inactivate_and_activate" string="Include inactivate property" domain="['|', ('active', '=', True), ('active', '=', False)]"/>
+                <filter name="group_by_state" string="State"  context="{'group_by': 'state'}" />
+            </search>
+        </field>
+    </record>
+
+</odoo>
