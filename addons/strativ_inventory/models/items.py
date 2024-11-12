@@ -21,3 +21,14 @@ class Item(models.Model):
         default='pending',
         required=True
     )
+    category_id = fields.Many2one("inventory.category", string = "Inventory Category")
+    admin = fields.Many2one('res.users', string="Office Admin", default=lambda self: self.env.user)
+    employee = fields.Many2one('res.partner', string="Employee")
+    tag = fields.Many2many('inventory.tags', string="Tag")
+
+class ItemCategory(models.Model):
+    _name = "inventory.category"
+    _description = "Inventory Categories"
+    _rec_name = 'type'
+    
+    type = fields.Char(string="Category", required = True)

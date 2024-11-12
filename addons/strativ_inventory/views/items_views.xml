@@ -7,17 +7,17 @@
         <field name="view_mode">list,form</field>
     </record>
     
-
     <record id="strativ_inventory_item_view_tree" model="ir.ui.view">
         <field name="name">strativ_inventory_item_view_tree</field>
         <field name="model">strativ.inventory.item</field>
         <field name="arch" type="xml">
             <tree string="clustered">
-                <field name="name" string="Title" />
+                <field name="name" string="Titles" />
                 <field name="buy_date" string="Purchase Date"/>
                 <field name="buy_price" string = "Price"/>
                 <field name="state" string="Status"/>
                 <field name="active" string="Active"/>
+                <field name="category_id" string="Category"/>
             </tree>
         </field>
     </record>
@@ -31,6 +31,9 @@
                     <h1>
                         <field name="name" />
                     </h1>
+                    <h2>
+                        <field name="tag" />
+                    </h2>
                     <notebook>
                         <page string="Item">
                             <group>
@@ -39,6 +42,10 @@
                                 <field name="description" />
                                 <field name="image" />   
                                 <field name="active" />
+                                <field name="category_id" />
+                                <field name="tag" />
+                                <field name="admin" />
+                                <field name="employee" string="Assigned To"/>
                             </group>
                         </page>
 

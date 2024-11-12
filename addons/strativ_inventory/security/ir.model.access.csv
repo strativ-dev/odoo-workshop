@@ -1,2 +1,4 @@
 id,name,model_id:id,group_id:id,perm_read,perm_write,perm_create,perm_unlink
-strativ.inventory.item,strativ.inventory.item,strativ_inventory.model_strativ_inventory_item,base.group_user,1,1,1,1
+access_strativ_inventory_item_model,access_strativ_inventory_item_model,model_strativ_inventory_item,base.group_user,1,1,1,1
+access_inventory_tags,access_inventory_tags,model_inventory_tags,base.group_user,1,1,1,1
+access_inventory_category,access_inventory_category,model_inventory_category,base.group_user,1,1,1,1
